@@ -23,7 +23,6 @@ interface ITrade
 {
     id: number;
     instrument: IInstrument;
-    iso2: string;
     side: Side;
     status: string;
     quantity: number;
@@ -49,7 +48,6 @@ for (var t = 1; t < 400; t++)
     trades.push({
         id: t,
         instrument: instrument,
-        iso2: instrument.iso2,
         side: Math.random() > 0.5 ? Side.Buy : Side.Sell,
         status: 'new',
         quantity: Math.round(Math.random() * 1000 + 100),
