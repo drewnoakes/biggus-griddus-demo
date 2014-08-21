@@ -19,6 +19,11 @@ table.grid thead th
     padding: 1em 0.5em 0;
 }
 
+table.grid thead th.sortable
+{
+    cursor: pointer;
+}
+
 table.grid tbody td
 {
     padding: 0 0.5em;
