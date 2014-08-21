@@ -78,8 +78,8 @@ var columns: biggus.IColumn<ITrade>[] = [
         value: trade => trade.side === Side.Buy ? "BUY" : "SELL",
         tdStyle: (td, trade) => td.classList.add(trade.side === Side.Buy ? "buy" : "sell")
     }),
-    new biggus.TextColumn<ITrade>({title:"Quantity", path:"quantity", className: "numeric"}),
-    new biggus.TextColumn<ITrade>({title:"Filled", path:"filled", className: "numeric"}),
+    new biggus.NumericColumn<ITrade>({title:"Quantity", path:"quantity", className: "numeric"}),
+    new biggus.NumericColumn<ITrade>({title:"Filled", path:"filled", className: "numeric", hideZero: true}),
     new biggus.BarChartColumn<ITrade>({
         title: "% Filled",
         className: "fill-percent",
