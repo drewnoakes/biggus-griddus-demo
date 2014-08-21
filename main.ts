@@ -1,5 +1,5 @@
 /**
- * @author Drew Noakes
+ * @author Drew Noakes https://drewnoakes.com
  * @date 22 Jan 2014
  */
 
