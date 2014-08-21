@@ -1,0 +1,2 @@
+find . -name "*.ts" | xargs tsc -m amd --sourcemap
+

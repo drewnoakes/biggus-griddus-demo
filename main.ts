@@ -40,9 +40,15 @@ var instruments = [
 
 var tradeStatuses = ["unsent", "new", "rejected", "partial", "filled"];
 
+//
+// Build test data
+//
+
 var trades: ITrade[] = [];
 
-for (var t = 1; t < 400; t++)
+var rowCount = 400;
+
+for (var t = 1; t < rowCount; t++)
 {
     var instrument = instruments[Math.floor(Math.random()*instruments.length)];
     trades.push({
