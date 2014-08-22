@@ -104,6 +104,11 @@ var grid = new biggus.Grid<ITrade>(table, {
     rowDataId: trade => trade.id.toString()
 });
 
+//
+// Periodically change data at random
+//
+
+var updatePeriodMillis = 100;
 grid.setRows(trades);
 
 setInterval(() => {
@@ -111,4 +116,4 @@ setInterval(() => {
     trade.filled = Math.floor((trade.filled + Math.random()*50) % trade.quantity);
     trade.status = tradeStatuses[Math.floor(Math.random() * tradeStatuses.length)];
     grid.setRow(trade);
-}, 5);
+}, updatePeriodMillis);
