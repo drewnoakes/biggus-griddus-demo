@@ -3,6 +3,11 @@ html, body
    font-family: sans-serif;
 }
 
+button
+{
+    border: 0;
+}
+
 /******* GRID *******/
 
 table.grid
@@ -11,12 +16,31 @@ table.grid
     table-layout: fixed;
 }
 
-table.grid thead th
+table.grid thead tr.header th
 {
     background: #444;
     color: #fff;
     text-align: left;
     padding: 1em 0.5em 0;
+}
+
+table.grid thead tr.filter td
+{
+    background: #666;
+    padding: 0px 1px 2px 2px;
+}
+
+table.grid thead tr.filter
+{
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+table.grid thead tr.filter td input
+{
+    margin: 0;
+    border: 0;
+    background: rgba(255, 255, 255, 0.35);
+    width: 100%;
 }
 
 table.grid thead th.sortable
