@@ -50,7 +50,7 @@ var trades: ITrade[] = [];
 
 var rowCount = 400;
 
-for (var t = 1; t < rowCount; t++)
+for (var t = 1; t <= rowCount; t++)
 {
     var instrument = instruments[Math.floor(Math.random()*instruments.length)];
     var trade: ITrade = <any>{
