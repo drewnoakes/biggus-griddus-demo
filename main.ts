@@ -11,8 +11,8 @@ import biggus = require("lib/biggus-griddus/biggus");
 
 enum Side
 {
-    Buy,
-    Sell
+    Buy = 0,
+    Sell = 1
 }
 
 interface IInstrument
