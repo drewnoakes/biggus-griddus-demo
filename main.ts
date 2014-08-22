@@ -3,6 +3,8 @@
  * @date 22 Jan 2014
  */
 
+import biggus = require("lib/biggus-griddus/biggus");
+
 //
 // Domain model
 //
@@ -19,7 +21,7 @@ interface IInstrument
     iso2: string;
 }
 
-interface ITrade
+interface ITrade extends biggus.INotifyChange<ITrade>
 {
     id: number;
     instrument: IInstrument;
@@ -51,21 +53,21 @@ var rowCount = 400;
 for (var t = 1; t < rowCount; t++)
 {
     var instrument = instruments[Math.floor(Math.random()*instruments.length)];
-    trades.push({
+    var trade: ITrade = <any>{
         id: t,
         instrument: instrument,
         side: Math.random() > 0.5 ? Side.Buy : Side.Sell,
         status: 'new',
         quantity: Math.round(Math.random() * 1000 + 100),
         filled: 0
-    });
+    };
+    biggus.mixinNotifyChange(trade);
+    trades.push(trade);
 }
 
 //
 // Grid construction
 //
-
-import biggus = require("lib/biggus-griddus/biggus");
 
 var columns: biggus.IColumn<ITrade>[] = [
     new biggus.TextColumn<ITrade>({title:'ID', path:'id'}),
