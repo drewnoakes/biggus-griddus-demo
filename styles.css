@@ -68,11 +68,11 @@ table.grid td.fill-percent div.bar { height: 1em; }
 table.grid th.flag { width: 16px; }
 
 table.grid th.side { width: 80px; text-align: center; }
-table.grid td.side.buy { text-align: center; background: blue; color: white; }
-table.grid td.side.sell { text-align: center; background: red; color: white; }
+table.grid td.side.buy { text-align: center; background: #2980b9; color: white; }
+table.grid td.side.sell { text-align: center; background: #e74c3c; color: white; }
 
-table.grid tr.order-unsent   { background-color: rgba(54, 67, 54, 0.51); }
-table.grid tr.order-new      { background-color: rgba(185, 187, 33, 0.47); }
-table.grid tr.order-rejected { background-color: rgba(187, 17, 75, 0.47); }
-table.grid tr.order-partial  { background-color: rgba(35, 150, 0, 0.56); }
-table.grid tr.order-filled   { background-color: rgba(35, 150, 0, 0.37); }
+table.grid tr.order-unsent    { background-color: #bdc3c7; }
+table.grid tr.order-new       { background-color: #3498db; }
+table.grid tr.order-rejected  { background-color: #c0392b; }
+table.grid tr.order-partial   { background-color: #27ae60; }
+table.grid tr.order-filled    { background-color: #2ecc71; }
