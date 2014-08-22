@@ -98,12 +98,11 @@ var columns: biggus.IColumn<ITrade>[] = [
 
 var table = <HTMLTableElement>document.querySelector('table');
 
-var source = new biggus.DataSource<ITrade>(trades);
+var source = new biggus.DataSource<ITrade>(trade => trade.id.toString(), trades);
 
 new biggus.Grid<ITrade>(source, table, {
     columns: columns,
-    rowClassName: trade => "order-" + trade.status,
-    rowDataId: trade => trade.id.toString()
+    rowClassName: trade => "order-" + trade.status
 });
 
 //
