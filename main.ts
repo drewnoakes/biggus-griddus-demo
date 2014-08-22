@@ -98,7 +98,9 @@ var columns: biggus.IColumn<ITrade>[] = [
 
 var table = <HTMLTableElement>document.querySelector('table');
 
-var grid = new biggus.Grid<ITrade>(table, {
+var source = new biggus.DataSource<ITrade>(trades);
+
+new biggus.Grid<ITrade>(source, table, {
     columns: columns,
     rowClassName: trade => "order-" + trade.status,
     rowDataId: trade => trade.id.toString()
@@ -109,11 +111,10 @@ var grid = new biggus.Grid<ITrade>(table, {
 //
 
 var updatePeriodMillis = 100;
-grid.setRows(trades);
 
 setInterval(() => {
     var trade = trades[Math.floor(Math.random()*trades.length)];
     trade.filled = Math.floor((trade.filled + Math.random()*50) % trade.quantity);
     trade.status = tradeStatuses[Math.floor(Math.random() * tradeStatuses.length)];
-    grid.setRow(trade);
+    trade.notifyChange();
 }, updatePeriodMillis);
