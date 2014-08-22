@@ -76,3 +76,4 @@ table.grid tr.order-new       { background-color: #3498db; }
 table.grid tr.order-rejected  { background-color: #c0392b; }
 table.grid tr.order-partial   { background-color: #27ae60; }
 table.grid tr.order-filled    { background-color: #2ecc71; }
+table.grid tr.order-cancelled { background-color: #8e44ad; }

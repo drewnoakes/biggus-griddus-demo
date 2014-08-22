@@ -40,7 +40,7 @@ var instruments = [
     {ric: 'CURR IN', iso2: 'IN'}
 ];
 
-var tradeStatuses = ["unsent", "new", "rejected", "partial", "filled"];
+var tradeStatuses = ["unsent", "new", "rejected", "cancelled", "partial", "filled"];
 
 //
 // Build test data
