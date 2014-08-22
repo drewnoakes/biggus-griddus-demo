@@ -113,7 +113,7 @@ var updatePeriodMillis = 100;
 
 setInterval(() => {
     var trade = trades[Math.floor(Math.random()*trades.length)];
-    trade.filled = Math.floor((trade.filled + Math.random()*50) % trade.quantity);
+    trade.filled = Math.floor((trade.filled + Math.random()*100) % trade.quantity);
     trade.status = tradeStatuses[Math.floor(Math.random() * tradeStatuses.length)];
     trade.notifyChange();
 }, updatePeriodMillis);
