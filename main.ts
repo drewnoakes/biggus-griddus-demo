@@ -109,9 +109,12 @@ new biggus.Grid<ITrade>(source, table, {
 // Periodically change data at random
 //
 
-var updatePeriodMillis = 100;
+var updatePeriodMillis = 30,
+    chkUpdate = <HTMLInputElement>document.querySelector('#chk-update');
 
 setInterval(() => {
+    if (!chkUpdate.checked)
+        return;
     var trade = trades[Math.floor(Math.random()*trades.length)];
     trade.filled = Math.floor((trade.filled + Math.random()*100) % trade.quantity);
     trade.status = tradeStatuses[Math.floor(Math.random() * tradeStatuses.length)];
