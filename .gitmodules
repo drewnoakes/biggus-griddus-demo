@@ -1,3 +1,3 @@
 [submodule "lib/biggus-griddus"]
 	path = lib/biggus-griddus
-	url = git@bitbucket.org:theshoreditchproject/biggus-griddus.git
+	url = git@github.com:drewnoakes/biggus-griddus.git
