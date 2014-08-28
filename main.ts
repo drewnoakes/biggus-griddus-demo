@@ -100,7 +100,7 @@ var table = <HTMLTableElement>document.querySelector('table');
 
 var source = new biggus.DataSource<ITrade>(trade => trade.id.toString(), trades);
 
-new biggus.Grid<ITrade>(source, table, {
+var grid = new biggus.Grid<ITrade>(source, table, {
     columns: columns,
     rowClassName: trade => "order-" + trade.status
 });
@@ -120,3 +120,9 @@ setInterval(() => {
     trade.status = tradeStatuses[Math.floor(Math.random() * tradeStatuses.length)];
     trade.notifyChange();
 }, updatePeriodMillis);
+
+var numWindowSize = <HTMLInputElement>document.querySelector('#num-window-size'),
+    numWindowOffset = <HTMLInputElement>document.querySelector('#num-window-offset');
+
+numWindowSize.addEventListener('input', e => grid.setWindowSize(parseInt(numWindowSize.value)));
+numWindowOffset.addEventListener('input', e => grid.setWindowOffset(parseInt(numWindowOffset.value)));
