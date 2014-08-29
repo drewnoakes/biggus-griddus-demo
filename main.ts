@@ -93,6 +93,12 @@ var columns: biggus.IColumn<ITrade>[] = [
         text:"cancel",
         type: biggus.ActionPresentationType.Button,
         action: trade => alert("Cancelling trade " + trade.id)
+    }),
+    new biggus.ActionColumn<ITrade>({
+        title:"",
+        text:"update",
+        type: biggus.ActionPresentationType.Button,
+        action: trade => update(trade)
     })
 ];
 
