@@ -58,6 +58,11 @@ table.grid thead th.sortable
     cursor: pointer;
 }
 
+table.grid thead th.action.button
+{
+    width: 40px;
+}
+
 table.grid thead th.sort-ascending::after  { content: "\f077"; font-family: FontAwesome; margin-left: 5px; color: #bbb; }
 table.grid thead th.sort-descending::after { content: "\f078"; font-family: FontAwesome; margin-left: 5px; color: #bbb; }
 
