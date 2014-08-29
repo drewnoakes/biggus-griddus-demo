@@ -106,20 +106,38 @@ var grid = new biggus.Grid<ITrade>(source, table, {
 });
 
 //
+// Random mutation of data
+//
+
+function update(trade?: ITrade)
+{
+    if (!trade)
+        trade = trades[Math.floor(Math.random() * trades.length)];
+
+    trade.filled = Math.floor((trade.filled + Math.random() * 100) % trade.quantity);
+    trade.status = tradeStatuses[Math.floor(Math.random() * tradeStatuses.length)];
+    trade.notifyChange();
+}
+
+var updatePeriodMillis = 100,
+    chkUpdate = <HTMLInputElement>document.querySelector('#chk-update');
+
+//
 // Periodically change data at random
 //
 
-var updatePeriodMillis = 30,
-    chkUpdate = <HTMLInputElement>document.querySelector('#chk-update');
-
-setInterval(() => {
+setInterval(() =>
+{
     if (!chkUpdate.checked)
         return;
-    var trade = trades[Math.floor(Math.random()*trades.length)];
-    trade.filled = Math.floor((trade.filled + Math.random()*100) % trade.quantity);
-    trade.status = tradeStatuses[Math.floor(Math.random() * tradeStatuses.length)];
-    trade.notifyChange();
+    update();
 }, updatePeriodMillis);
+
+//
+// Bind UI
+//
+
+document.querySelector('#btn-update').addEventListener('click', () => update());
 
 var numWindowSize = <HTMLInputElement>document.querySelector('#num-window-size'),
     numWindowOffset = <HTMLInputElement>document.querySelector('#num-window-offset');
