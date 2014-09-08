@@ -70,7 +70,7 @@ for (var t = 1; t <= rowCount; t++)
 //
 
 var columns: biggus.IColumn<ITrade>[] = [
-    new biggus.TextColumn<ITrade>({title:'ID', path:'id'}),
+    new biggus.TextColumn<ITrade>({title:'ID', path:'id', className: 'centered'}),
     new biggus.ImageColumn<ITrade>({url:"img/flags/{instrument.iso2}.png", lowerCase: true, className: "flag"}),
     new biggus.TextColumn<ITrade>({title:"Instrument", path:"instrument.ric"}),
     new biggus.TextColumn<ITrade>({title:"Status", path:"status"}),
