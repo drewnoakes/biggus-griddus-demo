@@ -48,7 +48,7 @@ var tradeStatuses = ["unsent", "new", "rejected", "cancelled", "partial", "fille
 
 var trades: ITrade[] = [];
 
-var rowCount = 400;
+var rowCount = 1000;
 
 for (var t = 1; t <= rowCount; t++)
 {
@@ -125,7 +125,7 @@ function update(trade?: ITrade)
     trade.notifyChange();
 }
 
-var updatePeriodMillis = 100,
+var updatePeriodMillis = 5,
     chkUpdate = <HTMLInputElement>document.querySelector('#chk-update');
 
 //
