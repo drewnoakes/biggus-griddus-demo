@@ -144,6 +144,7 @@ setInterval(() =>
 //
 
 document.querySelector('#btn-update').addEventListener('click', () => update());
+document.querySelector('#btn-reset').addEventListener('click', () => source.reset());
 
 var numWindowSize = <HTMLInputElement>document.querySelector('#num-window-size'),
     numWindowOffset = <HTMLInputElement>document.querySelector('#num-window-offset');
