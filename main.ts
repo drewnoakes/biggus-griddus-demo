@@ -95,7 +95,7 @@ function add(count: number)
     {
         var instrument = instruments[Math.floor(Math.random() * instruments.length)];
         var trade: ITrade = <any>{
-            id: nextId,
+            id: nextId++,
             instrument: instrument,
             side: Math.random() > 0.5 ? Side.Buy : Side.Sell,
             status: 'new',
@@ -104,7 +104,6 @@ function add(count: number)
         };
         biggus.mixinNotifyChange(trade);
         source.add(trade);
-        nextId++;
     }
 }
 
