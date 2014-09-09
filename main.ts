@@ -43,29 +43,6 @@ var instruments = [
 var tradeStatuses = ["unsent", "new", "rejected", "cancelled", "partial", "filled"];
 
 //
-// Build test data
-//
-
-var trades: ITrade[] = [];
-
-var rowCount = 1000;
-
-for (var t = 1; t <= rowCount; t++)
-{
-    var instrument = instruments[Math.floor(Math.random()*instruments.length)];
-    var trade: ITrade = <any>{
-        id: t,
-        instrument: instrument,
-        side: Math.random() > 0.5 ? Side.Buy : Side.Sell,
-        status: 'new',
-        quantity: Math.round(Math.random() * 1000 + 100),
-        filled: 0
-    };
-    biggus.mixinNotifyChange(trade);
-    trades.push(trade);
-}
-
-//
 // Grid construction
 //
 
@@ -104,12 +81,32 @@ var columns: biggus.IColumn<ITrade>[] = [
 
 var table = <HTMLTableElement>document.querySelector('table');
 
-var source = new biggus.DataSource<ITrade>(trade => trade.id.toString(), trades);
+var source = new biggus.DataSource<ITrade>(trade => trade.id.toString());
 
 var grid = new biggus.Grid<ITrade>(source, table, {
     columns: columns,
     rowClassName: trade => "order-" + trade.status
 });
+
+var nextId = 1;
+function add(count: number)
+{
+    for (var t = 1; t <= count; t++)
+    {
+        var instrument = instruments[Math.floor(Math.random() * instruments.length)];
+        var trade: ITrade = <any>{
+            id: nextId,
+            instrument: instrument,
+            side: Math.random() > 0.5 ? Side.Buy : Side.Sell,
+            status: 'new',
+            quantity: Math.round(Math.random() * 1000 + 100),
+            filled: 0
+        };
+        biggus.mixinNotifyChange(trade);
+        source.add(trade);
+        nextId++;
+    }
+}
 
 //
 // Random mutation of data
@@ -118,7 +115,10 @@ var grid = new biggus.Grid<ITrade>(source, table, {
 function update(trade?: ITrade)
 {
     if (!trade)
+    {
+        var trades = source.getAllItems();
         trade = trades[Math.floor(Math.random() * trades.length)];
+    }
 
     trade.filled = Math.floor((trade.filled + Math.random() * 100) % trade.quantity);
     trade.status = tradeStatuses[Math.floor(Math.random() * tradeStatuses.length)];
@@ -145,6 +145,9 @@ setInterval(() =>
 
 document.querySelector('#btn-update').addEventListener('click', () => update());
 document.querySelector('#btn-reset').addEventListener('click', () => source.reset());
+document.querySelector('#btn-add-1').addEventListener('click', () => add(1));
+document.querySelector('#btn-add-10').addEventListener('click', () => add(10));
+document.querySelector('#btn-add-1000').addEventListener('click', () => add(1000));
 
 var numWindowSize = <HTMLInputElement>document.querySelector('#num-window-size'),
     numWindowOffset = <HTMLInputElement>document.querySelector('#num-window-offset');
