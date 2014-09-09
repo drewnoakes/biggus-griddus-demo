@@ -70,33 +70,33 @@ for (var t = 1; t <= rowCount; t++)
 //
 
 var columns: biggus.IColumn<ITrade>[] = [
-    new biggus.TextColumn<ITrade>({title:'ID', path:'id', className: 'centered'}),
-    new biggus.ImageColumn<ITrade>({url:"img/flags/{instrument.iso2}.png", lowerCase: true, className: "flag"}),
-    new biggus.TextColumn<ITrade>({title:"Instrument", path:"instrument.ric"}),
-    new biggus.TextColumn<ITrade>({title:"Status", path:"status"}),
+    new biggus.TextColumn<ITrade>({title: 'ID', path: 'id', className: 'centered'}),
+    new biggus.ImageColumn<ITrade>({url: "img/flags/{instrument.iso2}.png", lowerCase: true, className: "flag"}),
+    new biggus.TextColumn<ITrade>({title: "Instrument", path: "instrument.ric"}),
+    new biggus.TextColumn<ITrade>({title: "Status", path: "status"}),
     new biggus.TextColumn<ITrade>({
-        title:"Side",
+        title: "Side",
         className: "side",
         value: trade => trade.side === Side.Buy ? "BUY" : "SELL",
         tdStyle: (td, trade) => td.classList.add(trade.side === Side.Buy ? "buy" : "sell")
     }),
-    new biggus.NumericColumn<ITrade>({title:"Quantity", path:"quantity", className: "numeric"}),
-    new biggus.NumericColumn<ITrade>({title:"Filled", path:"filled", className: "numeric", hideZero: true}),
+    new biggus.NumericColumn<ITrade>({title: "Quantity", path: "quantity", className: "numeric"}),
+    new biggus.NumericColumn<ITrade>({title: "Filled", path: "filled", className: "numeric", hideZero: true}),
     new biggus.BarChartColumn<ITrade>({
         title: "% Filled",
         className: "fill-percent",
-        ratio: trade => trade.filled/trade.quantity,
+        ratio: trade => trade.filled / trade.quantity,
         color: ratio => "hsl(" + (360 * ratio) + ",100%,50%)"
     }),
     new biggus.ActionColumn<ITrade>({
-        title:"",
-        text:"cancel",
+        title: "",
+        text: "cancel",
         type: biggus.ActionPresentationType.Button,
         action: trade => alert("Cancelling trade " + trade.id)
     }),
     new biggus.ActionColumn<ITrade>({
-        title:"",
-        text:"update",
+        title: "",
+        text: "update",
         type: biggus.ActionPresentationType.Button,
         action: trade => update(trade)
     })
