@@ -31,6 +31,13 @@ table.grid thead tr.header th
     padding: 1em 0.5em 0;
 }
 
+table.grid thead tr.header th.scroll
+{
+    width: 16px;
+    padding: 0;
+    margin: 0;
+}
+
 table.grid thead tr.filter
 {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -39,7 +46,7 @@ table.grid thead tr.filter
 table.grid thead tr.filter td
 {
     background: #666;
-    padding: 0px 1px 2px 2px;
+    padding: 0 1px 2px 2px;
 }
 
 table.grid thead tr.filter td input
@@ -95,6 +102,23 @@ table.grid td.numeric { text-align: right; }
 
 table.grid th.centered,
 table.grid td.centered { text-align: center; }
+
+/******* SCROLLING *******/
+
+table.grid tbody td.scroll
+{
+    position: relative;
+}
+
+div.scroll-outer
+{
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 16px;
+}
 
 /******* HIGHLIGHTING *******/
 
