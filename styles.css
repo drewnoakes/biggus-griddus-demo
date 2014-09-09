@@ -14,6 +14,30 @@ input[type='number']
     text-align: right;
 }
 
+input[type=range]
+{
+    -webkit-appearance: none;
+    background-color: #777;
+    height: 1px;
+    vertical-align: super;
+}
+
+input[type="range"]::-webkit-slider-thumb
+{
+    -webkit-appearance: none;
+    background-color: #ccc;
+    border: 1px solid #888;
+    opacity: 1.0;
+    width: 14px;
+    height: 14px;
+    border-radius: 14px;
+}
+
+input[type=range]:focus
+{
+    outline:none;
+}
+
 /******* GRID *******/
 
 table.grid
