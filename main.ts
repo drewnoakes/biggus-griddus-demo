@@ -116,6 +116,8 @@ function update(trade?: ITrade)
     if (!trade)
     {
         var trades = source.getAllItems();
+        if (!trades.length)
+            return;
         trade = trades[Math.floor(Math.random() * trades.length)];
     }
 
