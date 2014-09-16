@@ -146,6 +146,7 @@ setInterval(() =>
 
 document.querySelector('#btn-update').addEventListener('click', () => update());
 document.querySelector('#btn-reset').addEventListener('click', () => source.reset());
+document.querySelector('#btn-clear').addEventListener('click', () => source.clear());
 document.querySelector('#btn-add-1').addEventListener('click', () => add(1));
 document.querySelector('#btn-add-10').addEventListener('click', () => add(10));
 document.querySelector('#btn-add-1000').addEventListener('click', () => add(1000));
