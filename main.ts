@@ -77,7 +77,7 @@ var table = <HTMLTableElement>document.querySelector('table');
 
 var source = new biggus.DataSource<ITrade>(trade => trade.id.toString());
 
-var grid = new biggus.Grid<ITrade>(source, table, {
+new biggus.Grid<ITrade>(source, table, {
     columns: columns,
     rowClassName: trade => "order-" + trade.status
 });
@@ -120,27 +120,58 @@ function update()
     trade.notifyChange();
 }
 
-var updatePeriodMillis = 5,
-    chkUpdate = <HTMLInputElement>document.querySelector('#chk-update');
-
 //
-// Periodically change data at random
+// UI controls
 //
 
-setInterval(() =>
+var chkUpdate = <HTMLInputElement>document.querySelector('#chk-update'),
+    lblUpdate = <HTMLLabelElement>document.querySelector("label[for='chk-update']"),
+    sliderUpdateRate = <HTMLInputElement>document.querySelector('#slider-update-speed'),
+    btnClear = <HTMLButtonElement>document.querySelector('#btn-clear');
+
+var updateControls = () =>
 {
-    if (!chkUpdate.checked)
-        return;
-    update();
-}, updatePeriodMillis);
+    var hasRows = source.getAllItems().length !== 0;
+
+    lblUpdate.style.display
+        = chkUpdate.style.display
+        = btnClear.style.display
+        = hasRows ? 'inline' : 'none';
+
+    sliderUpdateRate.style.display = hasRows && chkUpdate.checked ? 'inline' : 'none';
+};
+
+updateControls();
 
 //
-// Bind UI
+// Buttons
 //
 
-document.querySelector('#btn-clear').addEventListener('click', () => source.clear());
-document.querySelector('#btn-add-1').addEventListener('click', () => add(1));
-document.querySelector('#btn-add-10').addEventListener('click', () => add(10));
-document.querySelector('#btn-add-1000').addEventListener('click', () => add(1000));
+btnClear.addEventListener('click', () => { source.clear(); updateControls(); });
 
+document.querySelector('#btn-add-1')   .addEventListener('click', () => { add(1);    updateControls(); });
+document.querySelector('#btn-add-10')  .addEventListener('click', () => { add(10);   updateControls(); });
+document.querySelector('#btn-add-1000').addEventListener('click', () => { add(1000); updateControls(); });
 
+//
+// Periodically update rows at random
+//
+
+var delayUpdate = () =>
+{
+    var delay = parseInt(sliderUpdateRate.max) - parseInt(sliderUpdateRate.value);
+
+    setTimeout(() =>
+    {
+        if (!chkUpdate.checked)
+            return;
+
+        // Modify a random trade
+        update();
+
+        // Schedule the next update
+        delayUpdate();
+    }, delay);
+};
+
+chkUpdate.addEventListener('change', () => { if (chkUpdate.checked) delayUpdate(); updateControls(); });
