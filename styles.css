@@ -39,6 +39,7 @@ table.grid
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
+    outline: none;
 }
 
 table.grid thead tr.header th
