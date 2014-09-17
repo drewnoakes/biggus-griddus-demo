@@ -70,12 +70,6 @@ var columns: biggus.IColumn<ITrade>[] = [
         text: "cancel",
         type: biggus.ActionPresentationType.Button,
         action: trade => alert("Cancelling trade " + trade.id)
-    }),
-    new biggus.ActionColumn<ITrade>({
-        title: "",
-        text: "update",
-        type: biggus.ActionPresentationType.Button,
-        action: trade => update(trade)
     })
 ];
 
@@ -111,18 +105,18 @@ function add(count: number)
 // Random mutation of data
 //
 
-function update(trade?: ITrade)
+function update()
 {
-    if (!trade)
-    {
-        var trades = source.getAllItems();
-        if (!trades.length)
-            return;
-        trade = trades[Math.floor(Math.random() * trades.length)];
-    }
+    var trades = source.getAllItems();
+
+    if (!trades.length)
+        return;
+
+    var trade = trades[Math.floor(Math.random() * trades.length)];
 
     trade.filled = Math.floor((trade.filled + Math.random() * 100) % trade.quantity);
     trade.status = tradeStatuses[Math.floor(Math.random() * tradeStatuses.length)];
+
     trade.notifyChange();
 }
 
