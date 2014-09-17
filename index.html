@@ -15,12 +15,16 @@
         h1 { font-family: 'Cinzel Decorative', cursive; margin: 0; font-size: 32px; line-height: 36px; color: #444; }
         h1:hover { font-family: 'Caesar Dressing', cursive; }
 
-        div.introduction { font-family: 'PT Serif', monospace; margin: 20px 0 30px 50px; font-size: 15px; }
+        div.introduction { font-family: 'PT Serif', monospace; margin: 20px 0 20px 50px; font-size: 15px; }
 
-        div.controls { margin: 20px 0; padding:10px; background: #eee; }
+        div.controls { margin-bottom: 20px; padding:10px; background: #eee; }
         div.controls, div.controls button { font-family: 'PT Serif', monospace; font-size: 14px; }
 
         div.controls input[type='number'] { margin-left: 0.5em; width: 45px; border: 1px solid #ccc; }
+
+        html, body { height: 100%; margin: 0; }
+        body { display: flex; flex-direction: column; padding: 20px; box-sizing: border-box; }
+        #grid-container { flex: 1; overflow: hidden; }
 
         table.grid:active { outline: none; }
     </style>
@@ -56,7 +60,9 @@
         </div>
     </div>
 
-    <table class="grid"></table>
+    <div id="grid-container">
+        <table class="grid"></table>
+    </div>
 
 </body>
 </html>
