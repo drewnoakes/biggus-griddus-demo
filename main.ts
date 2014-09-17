@@ -1,6 +1,14 @@
 /**
+ * biggus-griddus demo project.
+ *
+ * This module specifies a domain model, defines an array of columns, creates a data source and
+ * constructs an instance of biggus-griddus.
+ *
+ * It also binds some UI elements to basic operations to facilitate experimenting with the library.
+ *
  * @author Drew Noakes https://drewnoakes.com
  * @date 22 Jan 2014
+ * @see https://github.com/drewnoakes/biggus-griddus
  */
 
 import biggus = require("lib/biggus-griddus/biggus");
@@ -82,7 +90,12 @@ new biggus.Grid<ITrade>(source, table, {
     rowClassName: trade => "order-" + trade.status
 });
 
+//
+// Adding dummy test data
+//
+
 var nextId = 1;
+
 function add(count: number)
 {
     for (var t = 1; t <= count; t++)
