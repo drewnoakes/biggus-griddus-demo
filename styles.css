@@ -8,12 +8,6 @@ button
     border: 0;
 }
 
-input[type='number']
-{
-    width: 80px;
-    text-align: right;
-}
-
 input[type=range]
 {
     -webkit-appearance: none;
