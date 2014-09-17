@@ -143,8 +143,4 @@ document.querySelector('#btn-add-1').addEventListener('click', () => add(1));
 document.querySelector('#btn-add-10').addEventListener('click', () => add(10));
 document.querySelector('#btn-add-1000').addEventListener('click', () => add(1000));
 
-var numWindowSize = <HTMLInputElement>document.querySelector('#num-window-size'),
-    numWindowOffset = <HTMLInputElement>document.querySelector('#num-window-offset');
 
-numWindowSize.addEventListener('input', e => grid.setWindowSize(parseInt(numWindowSize.value)));
-numWindowOffset.addEventListener('input', e => grid.setWindowOffset(parseInt(numWindowOffset.value)));
