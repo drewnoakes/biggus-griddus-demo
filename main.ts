@@ -81,7 +81,7 @@ var columns: biggus.IColumn<ITrade>[] = [
     })
 ];
 
-var table = <HTMLTableElement>document.querySelector('table');
+var table = <HTMLTableElement>document.querySelector('table.trades');
 
 var source = new biggus.DataSource<ITrade>(trade => trade.id.toString());
 

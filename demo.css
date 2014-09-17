@@ -1,0 +1,95 @@
+/******* PAGE LAYOUT *******/
+
+html, body
+{
+    height: 100%;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1
+{
+    font-family: 'Cinzel Decorative', cursive;
+    margin: 0;
+    font-size: 32px;
+    line-height: 36px;
+    color: #444;
+}
+
+h1:hover { font-family: 'Caesar Dressing', cursive; }
+
+div.introduction
+{
+    font-family: 'PT Serif', monospace;
+    margin: 20px 0 20px 50px;
+    font-size: 15px;
+}
+
+div.controls
+{
+    margin-bottom: 20px;
+    padding:10px;
+    background: #eee;
+}
+
+div.controls,
+div.controls button
+{
+    font-family: 'PT Serif', monospace;
+    font-size: 14px;
+}
+
+#grid-container { flex: 1; overflow: hidden; }
+
+/******* COLUMN INSTANCES *******/
+
+table.trades th.action.button { width: 40px; }
+table.trades th.fill-percent { text-align: center; }
+table.trades td.fill-percent div.bar { height: 1em; }
+
+table.trades th.flag { width: 16px; }
+
+table.trades th.side { width: 80px; text-align: center; }
+table.trades td.side.buy { text-align: center; background: #2980b9; color: white; }
+table.trades td.side.sell { text-align: center; background: #e74c3c; color: white; }
+
+table.trades tr.order-unsent    { background-color: #bdc3c7; }
+table.trades tr.order-new       { background-color: #3498db; }
+table.trades tr.order-rejected  { background-color: #c0392b; }
+table.trades tr.order-partial   { background-color: #27ae60; }
+table.trades tr.order-filled    { background-color: #2ecc71; }
+table.trades tr.order-cancelled { background-color: #8e44ad; }
+
+
+/******* INPUT STYLES *******/
+
+button { border: 0; }
+
+input[type=range]
+{
+    -webkit-appearance: none;
+    background-color: #777;
+    height: 1px;
+    vertical-align: super;
+}
+
+input[type="range"]::-webkit-slider-thumb
+{
+    -webkit-appearance: none;
+    background-color: #ccc;
+    border: 1px solid #888;
+    opacity: 1.0;
+    width: 14px;
+    height: 14px;
+    border-radius: 14px;
+}
+
+input[type=range]:focus { outline:none; }
