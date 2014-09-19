@@ -47,6 +47,13 @@ div.controls button
     font-size: 14px;
 }
 
+#lbl-row-count
+{
+    background: #f8f8f8;
+    margin: -5px 5px;
+    padding: 5px;
+}
+
 #grid-container { flex: 1; overflow: hidden; }
 
 /******* COLUMN INSTANCES *******/

@@ -94,7 +94,8 @@ new biggus.Grid<ITrade>(source, table, {
 // Adding dummy test data
 //
 
-var nextId = 1;
+var nextId = 1,
+    lblRowCount = <HTMLSpanElement>document.querySelector('#lbl-row-count');
 
 function add(count: number)
 {
@@ -114,6 +115,9 @@ function add(count: number)
         trades.push(trade);
     }
     source.addRange(trades);
+    var rowCount = source.getAllItems().length;
+    lblRowCount.textContent = rowCount === 1 ? "One row" : rowCount + " rows";
+    lblRowCount.style.display = 'inline';
 }
 
 //
@@ -162,7 +166,13 @@ updateControls();
 // Buttons
 //
 
-btnClear.addEventListener('click', () => { source.clear(); updateControls(); nextId = 1; });
+btnClear.addEventListener('click', () =>
+{
+    source.clear();
+    updateControls();
+    nextId = 1;
+    lblRowCount.style.display = 'none';
+});
 
 document.querySelector('#btn-add-1')   .addEventListener('click', () => { add(1);    updateControls(); });
 document.querySelector('#btn-add-10')  .addEventListener('click', () => { add(10);   updateControls(); });
