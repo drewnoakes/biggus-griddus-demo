@@ -172,10 +172,11 @@ btnClear.addEventListener('click', () =>
     lblRowCount.style.display = 'none';
 });
 
-document.querySelector('#btn-add-1')   .addEventListener('click', () => { add(1);    updateControls(); });
-document.querySelector('#btn-add-10')  .addEventListener('click', () => { add(10);   updateControls(); });
-document.querySelector('#btn-add-100') .addEventListener('click', () => { add(100);  updateControls(); });
-document.querySelector('#btn-add-1000').addEventListener('click', () => { add(1000); updateControls(); });
+document.querySelector('#btn-add-1')    .addEventListener('click', () => { add(1);     updateControls(); });
+document.querySelector('#btn-add-10')   .addEventListener('click', () => { add(10);    updateControls(); });
+document.querySelector('#btn-add-100')  .addEventListener('click', () => { add(100);   updateControls(); });
+document.querySelector('#btn-add-1000') .addEventListener('click', () => { add(1000);  updateControls(); });
+document.querySelector('#btn-add-10000').addEventListener('click', () => { add(10000); updateControls(); });
 
 //
 // Periodically update rows at random
