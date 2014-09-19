@@ -116,7 +116,7 @@ function add(count: number)
     }
     source.addRange(trades);
     var rowCount = source.getAllItems().length;
-    lblRowCount.textContent = rowCount === 1 ? "One row" : rowCount + " rows";
+    lblRowCount.textContent = rowCount === 1 ? "One row" : rowCount.toLocaleString() + " rows";
     lblRowCount.style.display = 'inline';
 }
 
