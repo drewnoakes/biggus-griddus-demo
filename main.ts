@@ -162,7 +162,7 @@ updateControls();
 // Buttons
 //
 
-btnClear.addEventListener('click', () => { source.clear(); updateControls(); });
+btnClear.addEventListener('click', () => { source.clear(); updateControls(); nextId = 1; });
 
 document.querySelector('#btn-add-1')   .addEventListener('click', () => { add(1);    updateControls(); });
 document.querySelector('#btn-add-10')  .addEventListener('click', () => { add(10);   updateControls(); });
