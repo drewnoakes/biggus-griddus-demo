@@ -160,8 +160,6 @@ var updateControls = () =>
     sliderUpdateRate.style.display = hasRows && chkUpdate.checked ? 'inline' : 'none';
 };
 
-updateControls();
-
 //
 // Buttons
 //

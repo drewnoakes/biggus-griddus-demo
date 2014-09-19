@@ -54,6 +54,12 @@ div.controls button
     padding: 5px;
 }
 
+#lbl-row-count,
+#btn-clear,
+#chk-update,
+#lbl-update,
+#slider-update-speed { display: none; }
+
 #grid-container { flex: 1; overflow: hidden; }
 
 /******* COLUMN INSTANCES *******/
