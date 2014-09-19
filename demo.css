@@ -33,6 +33,8 @@ div.introduction
     font-size: 15px;
 }
 
+div.introduction a { color: blue; }
+
 div.controls
 {
     margin-bottom: 20px;
