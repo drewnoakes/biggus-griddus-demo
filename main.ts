@@ -98,6 +98,7 @@ var nextId = 1;
 
 function add(count: number)
 {
+    var trades = [];
     for (var t = 1; t <= count; t++)
     {
         var instrument = instruments[Math.floor(Math.random() * instruments.length)];
@@ -110,8 +111,9 @@ function add(count: number)
             filled: 0
         };
         biggus.mixinNotifyChange(trade);
-        source.add(trade);
+        trades.push(trade);
     }
+    source.addRange(trades);
 }
 
 //
